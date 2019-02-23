@@ -1,15 +1,15 @@
 {
-  "name": "ngx-social-login",
-  "version": "6.0.0",
+  "name": "ngx-social-login-pro",
+  "version": "6.0.2",
   "peerDependencies": {
     "@angular/core": ">2.0.0",
     "rxjs": ">=6.0.0",
     "typescript": ">2.4.0"
   },
-  "description": "This a simple, easy to use social login module.",
+  "description": "Login social facebook y google para angular > 2",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wermerb/ngx-social-login.git"
+    "url": "git+https://github.com/davidoween/ngx-social-login.git"
   },
   "keywords": [
     "angular",
@@ -24,9 +24,9 @@
     "facebook-authentication",
     "ngx-social-login"
   ],
-  "author": "Balázs Wermer <wermerb@gmail.com>",
+  "author": "david.oween@gmail.com",
   "bugs": {
-    "url": "https://github.com/wermerb/ngx-social-login/issues"
+    "url": "https://github.com/davidoween/ngx-social-login/issues"
   },
-  "homepage": "https://github.com/wermerb/ngx-social-login#readme"
+  "homepage": "https://github.com/davidoween/ngx-social-login#readme"
 }

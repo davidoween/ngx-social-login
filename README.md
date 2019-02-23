@@ -4,16 +4,18 @@ This module's intention is to provide an easy to use social login service, which
 
 This project has been inspired by [Angularx Social Login](https://github.com/abacritt/angularx-social-login)
 
+I have created the fork to solve the problems with facebook (using promises). User does not accept pull request.
+
 ## Getting started
 
 ### Install via npm/yarn
 
 ```sh
-npm install --save ngx-social-login
+npm install --save ngx-social-login-pro
 ```
 
 ```sh
-yarn add ngx-social-login
+yarn add ngx-social-login-pro
 ```
 
 ### Import the module
@@ -43,6 +45,10 @@ Facebook:
                 facebook: {
                     initOptions: {
                         appId: 'YOUR_APP_ID'
+                    },
+                     loginOptions: {
+                        auth_type: 'rerequest',
+                        scope: 'email' // request permission to get email
                     }
                 }
             }
@@ -68,11 +74,13 @@ export class LoginPageComponent {
     constructor(private _service: SocialLoginService) {}
 
       loginWithFacebook(): void {
-          this._service.login(Provider.FACEBOOK).subscribe(user => console.log(user));
+            const user = await this._service.login(Provider.FACEBOOK) 
+            console.log(user);
       }
 
       loginWithGoogle(): void {
-          this._service.login(Provider.GOOGLE).subscribe(user => console.log(user));
+          const user = await this._service.login(Provider.GOOGLE).toPromise();
+          console.log(user);
       }
 
       logout(): void {
@@ -89,8 +97,10 @@ export class LoginPageComponent {
 
 ```bash
 git clone https://github.com/wermerb/ngx-social-login.git
-cd ngx-social-login
+cd ngx-social-login-pro
 Add your Google and/or Facebook client id to AppModule's config
 yarn / npm install
+npm i ngx-social-login-pro 
+ng build ngx-social-login-pro #generate lib
 ng serve
 ```

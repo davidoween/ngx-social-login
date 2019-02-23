@@ -15,21 +15,21 @@ export class FacebookProvider extends OauthProvider {
         });
     }
 
-    login(): Observable<SocialUser> {
-        return Observable.create(observer => {
+    login(): any {
+        return new Promise(resolve => {
             FB.login((response: any) => {
                 if (response.authResponse) {
                     const authResponse = response.authResponse;
                     FB.api('/me?fields=name,email,picture,first_name,last_name', (fbUser: any) => {
-                        observer.complete({
+                        resolve({
                             id: fbUser.id,
                             name: fbUser.name,
                             email: fbUser.email,
                             profileImg: `https://graph.facebook.com/${fbUser.id}/picture?type=normal`,
                             firstName: fbUser.first_name,
                             lastName: fbUser.last_name,
-                            accessToken: authResponse.accessToken
-                        } as SocialUser);
+                            authToken: authResponse.accessToken
+                        });
                     });
                 }
             }, this._config.loginOptions);
